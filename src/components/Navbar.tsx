@@ -1,15 +1,27 @@
 
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Search, ShoppingCart, Heart, User, LogIn } from "lucide-react";
+import { Search, ShoppingCart, Heart, User, LogIn, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useState } from "react";
 
 const Navbar = () => {
   const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Will be replaced with auth state
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+  const [isSeller, setIsSeller] = useState(false); // For demo purposes
+  const [cartCount, setCartCount] = useState(2); // Mock cart count
+  const [wishlistCount, setWishlistCount] = useState(3); // Mock wishlist count
+
+  useEffect(() => {
+    // Check if user is logged in from localStorage
+    const loginStatus = localStorage.getItem("isLoggedIn");
+    setIsLoggedIn(loginStatus === "true");
+    
+    // For demo, assume user is also a seller
+    setIsSeller(loginStatus === "true");
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -70,18 +82,35 @@ const Navbar = () => {
               </button>
             )}
             
-            <Link to="/wishlist" className="p-2 rounded-full hover:bg-gray-100">
+            <Link to="/wishlist" className="p-2 rounded-full hover:bg-gray-100 relative">
               <Heart className="h-5 w-5 text-gray-600" />
+              {wishlistCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
+                  {wishlistCount}
+                </span>
+              )}
             </Link>
             
-            <Link to="/cart" className="p-2 rounded-full hover:bg-gray-100">
+            <Link to="/cart" className="p-2 rounded-full hover:bg-gray-100 relative">
               <ShoppingCart className="h-5 w-5 text-gray-600" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </Link>
             
             {isLoggedIn ? (
-              <Link to="/dashboard" className="p-2 rounded-full hover:bg-gray-100">
-                <User className="h-5 w-5 text-gray-600" />
-              </Link>
+              <div className="flex items-center space-x-4">
+                {isSeller && (
+                  <Link to="/seller-dashboard" className="p-2 rounded-full hover:bg-gray-100">
+                    <Package className="h-5 w-5 text-gray-600" />
+                  </Link>
+                )}
+                <Link to="/user-dashboard" className="p-2 rounded-full hover:bg-gray-100">
+                  <User className="h-5 w-5 text-gray-600" />
+                </Link>
+              </div>
             ) : (
               <Link to="/login">
                 <Button variant="outline" className="flex items-center gap-2">
@@ -118,6 +147,41 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
+              
+              {isLoggedIn && (
+                <>
+                  <li>
+                    <Link 
+                      to="/user-dashboard"
+                      className="block py-2 text-sm font-medium text-gray-600 hover:text-sport-blue"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      My Account
+                    </Link>
+                  </li>
+                  {isSeller && (
+                    <li>
+                      <Link 
+                        to="/seller-dashboard"
+                        className="block py-2 text-sm font-medium text-gray-600 hover:text-sport-blue"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Seller Dashboard
+                      </Link>
+                    </li>
+                  )}
+                </>
+              )}
+              
+              <li>
+                <Link 
+                  to="/order-tracking"
+                  className="block py-2 text-sm font-medium text-gray-600 hover:text-sport-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Track Order
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>

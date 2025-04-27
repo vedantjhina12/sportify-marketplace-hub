@@ -33,7 +33,7 @@ const HeroBanner = () => {
             <div className="relative max-w-md mx-auto md:ml-auto md:mr-0">
               <div className="relative z-10">
                 <img 
-                  src="/placeholder.svg" 
+                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" 
                   alt="Sports Equipment" 
                   className="rounded-lg shadow-xl"
                   width="600"

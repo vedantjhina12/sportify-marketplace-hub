@@ -24,7 +24,7 @@ const Wishlist = () => {
       id: 3,
       name: "Elite Tennis Racket",
       price: 199.99,
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1617083934551-ea81e8c49ab4",
       category: "Tennis",
       available: true
     },
@@ -32,7 +32,7 @@ const Wishlist = () => {
       id: 6,
       name: "Hiking Backpack",
       price: 89.99,
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1622260614153-03223fbf3c9d",
       category: "Outdoor",
       available: true
     },
@@ -40,7 +40,7 @@ const Wishlist = () => {
       id: 8,
       name: "Waterproof Fitness Tracker",
       price: 79.99,
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1557166983-5939644582c8",
       category: "Fitness",
       available: false
     }

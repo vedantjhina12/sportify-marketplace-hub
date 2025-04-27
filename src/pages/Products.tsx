@@ -24,7 +24,7 @@ const products = [
   {
     id: 3,
     name: "Elite Tennis Racket",
-    price: A199.99,
+    price: 199.99,
     image: "/placeholder.svg",
     rating: 5,
     category: "Tennis"
@@ -75,3 +75,4 @@ const Products = () => {
 };
 
 export default Products;
+

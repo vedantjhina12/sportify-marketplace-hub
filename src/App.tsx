@@ -1,10 +1,11 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Products from "./pages/Products";
+import NewArrivals from "./pages/NewArrivals";
 import Product from "./pages/Product";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -41,6 +42,8 @@ const App = () => (
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
           <Route path="/seller/add-product" element={<AddProduct />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/new-arrivals" element={<NewArrivals />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

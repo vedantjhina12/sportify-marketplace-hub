@@ -33,9 +33,9 @@ const HeroBanner = () => {
             <div className="relative max-w-md mx-auto md:ml-auto md:mr-0">
               <div className="relative z-10">
                 <img 
-                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" 
+                  src="https://images.unsplash.com/photo-1517649763962-0c623066013b" 
                   alt="Sports Equipment" 
-                  className="rounded-lg shadow-xl"
+                  className="rounded-lg shadow-xl object-cover"
                   width="600"
                   height="400"
                 />

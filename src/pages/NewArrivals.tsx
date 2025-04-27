@@ -8,7 +8,7 @@ const newArrivals = [
     id: 7,
     name: "Performance Running Shorts",
     price: 34.99,
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1519058082700-08a0b56da9b4",
     rating: 4,
     category: "Running"
   },
@@ -16,7 +16,7 @@ const newArrivals = [
     id: 8,
     name: "Waterproof Fitness Tracker",
     price: 79.99,
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1557166983-5939644582c8",
     rating: 5,
     category: "Fitness"
   },
@@ -24,7 +24,7 @@ const newArrivals = [
     id: 9,
     name: "Professional Football Cleats",
     price: 89.99,
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1511886929837-354d827aae26",
     rating: 5,
     category: "Football"
   }

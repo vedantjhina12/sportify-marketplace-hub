@@ -17,6 +17,7 @@ import UserDashboard from "./pages/UserDashboard";
 import SellerDashboard from "./pages/SellerDashboard";
 import AddProduct from "./pages/AddProduct";
 import NotFound from "./pages/NotFound";
+import CategoryView from "./pages/CategoryView";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/category/:category" element={<CategoryView />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -39,7 +41,6 @@ const App = () => (
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
           <Route path="/seller/add-product" element={<AddProduct />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

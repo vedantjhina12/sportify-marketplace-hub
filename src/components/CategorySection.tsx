@@ -5,37 +5,37 @@ const categories = [
   {
     id: 1,
     name: "Running",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8",
     slug: "running"
   },
   {
     id: 2,
     name: "Football",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55",
     slug: "football"
   },
   {
     id: 3,
     name: "Basketball",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1519861531473-9200262188bf",
     slug: "basketball"
   },
   {
     id: 4,
     name: "Tennis",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1617083934551-ea81e8c49ab4",
     slug: "tennis"
   },
   {
     id: 5,
     name: "Fitness",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
     slug: "fitness"
   },
   {
     id: 6,
     name: "Outdoor",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1551632811-561732d1e306",
     slug: "outdoor"
   }
 ];

@@ -6,7 +6,7 @@ const testimonials = [
     id: 1,
     name: "Alex Johnson",
     role: "Professional Runner",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
     rating: 5,
     testimonial: "The quality of running gear from Sportify has been instrumental in my training. The shoes provide incredible support and comfort during long runs."
   },
@@ -14,7 +14,7 @@ const testimonials = [
     id: 2,
     name: "Sarah Williams",
     role: "Fitness Instructor",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
     rating: 5,
     testimonial: "I recommend Sportify equipment to all my clients. The durability and performance of their products is unmatched in the fitness industry."
   },
@@ -22,7 +22,7 @@ const testimonials = [
     id: 3,
     name: "Michael Chen",
     role: "Basketball Coach",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
     rating: 4,
     testimonial: "My team has been using Sportify basketballs for the past season, and the consistent performance has helped improve our practice sessions significantly."
   }

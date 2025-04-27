@@ -42,7 +42,7 @@ const FeaturedBanner = () => {
           <div className="relative">
             <div className="relative z-10">
               <img 
-                src="/placeholder.svg" 
+                src="https://images.unsplash.com/photo-1556906781-9a412961c28c" 
                 alt="Athletic Collection" 
                 className="rounded-lg shadow-xl object-cover w-full aspect-[4/3]"
               />

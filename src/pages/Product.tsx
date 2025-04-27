@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Heart, ShoppingCart, Truck, Star, Package } from "lucide-react";
+import { Heart, ShoppingCart, Truck, Star, Package, ZoomIn, ZoomOut } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -21,10 +21,10 @@ const productData = {
   colors: ["Black", "Blue", "Red"],
   sizes: ["7", "8", "9", "10", "11", "12"],
   images: [
-    "/placeholder.svg",
-    "/placeholder.svg",
-    "/placeholder.svg",
-    "/placeholder.svg"
+    "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+    "https://images.unsplash.com/photo-1608231387042-66d1773070a5",
+    "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a",
+    "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
   ],
   features: [
     "Responsive cushioning for maximum energy return",
@@ -53,6 +53,9 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
   
   // Handle Add to Cart
   const handleAddToCart = () => {
@@ -79,6 +82,31 @@ const Product = () => {
     });
   };
 
+  // Handle zoom in/out
+  const toggleZoom = () => {
+    setIsZoomed(!isZoomed);
+    setZoomLevel(isZoomed ? 1 : 2.5);
+  };
+
+  // Handle mouse move for zoom effect
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isZoomed) return;
+    
+    const container = e.currentTarget;
+    const rect = container.getBoundingClientRect();
+    
+    // Calculate relative position inside the container (0 to 1)
+    const relativeX = (e.clientX - rect.left) / rect.width;
+    const relativeY = (e.clientY - rect.top) / rect.height;
+    
+    // Calculate the position of the zoomed image
+    // This moves the image in the opposite direction of the mouse
+    const x = (0.5 - relativeX) * 100;
+    const y = (0.5 - relativeY) * 100;
+    
+    setZoomPosition({ x, y });
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -88,12 +116,32 @@ const Product = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
             {/* Product Images */}
             <div>
-              <div className="bg-gray-100 rounded-lg overflow-hidden mb-4">
-                <img 
-                  src={productData.images[activeImage]} 
-                  alt={productData.name}
-                  className="w-full h-auto object-contain aspect-square"
+              <div 
+                className="bg-gray-100 rounded-lg overflow-hidden mb-4 relative cursor-zoom-in"
+                style={{ height: "500px" }}
+                onClick={toggleZoom}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={() => {
+                  if (isZoomed) toggleZoom();
+                }}
+              >
+                <div 
+                  className="w-full h-full transition-transform duration-200"
+                  style={{ 
+                    backgroundImage: `url(${productData.images[activeImage]})`,
+                    backgroundPosition: isZoomed ? `${zoomPosition.x}% ${zoomPosition.y}%` : 'center',
+                    backgroundSize: isZoomed ? `${zoomLevel * 100}%` : 'contain',
+                    backgroundRepeat: 'no-repeat',
+                    transform: isZoomed ? `scale(${zoomLevel})` : 'scale(1)'
+                  }}
                 />
+                <div className="absolute top-4 right-4 bg-white/80 rounded-full p-2 shadow-md">
+                  {isZoomed ? (
+                    <ZoomOut className="h-5 w-5 text-gray-700" />
+                  ) : (
+                    <ZoomIn className="h-5 w-5 text-gray-700" />
+                  )}
+                </div>
               </div>
               
               <div className="grid grid-cols-4 gap-2">

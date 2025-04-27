@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -66,13 +65,11 @@ const UserDashboard = () => {
   };
   
   const handleLogout = () => {
-    // Remove login state from localStorage
     localStorage.removeItem("isLoggedIn");
     toast({
       title: "Logged out",
       description: "You have been logged out successfully.",
     });
-    // In a real app, this would redirect to home page
     window.location.href = "/";
   };
   
@@ -80,7 +77,6 @@ const UserDashboard = () => {
     const { name, value } = e.target;
     
     if (name.includes(".")) {
-      // Handle nested fields (address)
       const [parent, child] = name.split(".");
       setUserData({
         ...userData,
@@ -90,7 +86,6 @@ const UserDashboard = () => {
         }
       });
     } else {
-      // Handle top-level fields
       setUserData({
         ...userData,
         [name]: value
@@ -106,11 +101,17 @@ const UserDashboard = () => {
           <h1 className="text-3xl font-bold mb-8">My Account</h1>
           
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="bg-white shadow rounded-lg overflow-hidden">
-                <div className="p-6 border-b">
-                  <div className="flex items-center">
+                <div className="relative p-6 border-b">
+                  <div className="absolute inset-0 opacity-10">
+                    <img
+                      src="https://images.unsplash.com/photo-1638536532686-d610adcd5e67"
+                      alt="Profile background"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="relative flex items-center">
                     <div className="h-12 w-12 rounded-full bg-sport-blue flex items-center justify-center text-white mr-4">
                       <User className="h-6 w-6" />
                     </div>
@@ -161,7 +162,6 @@ const UserDashboard = () => {
               </div>
             </div>
             
-            {/* Main Content */}
             <div className="lg:col-span-3">
               <Tabs defaultValue="profile" className="space-y-6">
                 <TabsList className="bg-white">
@@ -171,7 +171,6 @@ const UserDashboard = () => {
                   <TabsTrigger value="payment">Payment Methods</TabsTrigger>
                 </TabsList>
                 
-                {/* Profile Tab */}
                 <TabsContent value="profile" className="bg-white shadow rounded-lg p-6">
                   <div className="flex justify-between items-center mb-6">
                     <h2 className="text-xl font-semibold">Profile Information</h2>
@@ -301,7 +300,6 @@ const UserDashboard = () => {
                   </form>
                 </TabsContent>
                 
-                {/* Orders Tab */}
                 <TabsContent value="orders" className="bg-white shadow rounded-lg overflow-hidden">
                   <div className="p-6 border-b">
                     <h2 className="text-xl font-semibold">Order History</h2>
@@ -348,7 +346,6 @@ const UserDashboard = () => {
                   </div>
                 </TabsContent>
                 
-                {/* Addresses Tab */}
                 <TabsContent value="addresses" className="bg-white shadow rounded-lg p-6">
                   <div className="flex justify-between items-center mb-6">
                     <h2 className="text-xl font-semibold">Saved Addresses</h2>
@@ -386,7 +383,6 @@ const UserDashboard = () => {
                   </div>
                 </TabsContent>
                 
-                {/* Payment Methods Tab */}
                 <TabsContent value="payment" className="bg-white shadow rounded-lg p-6">
                   <div className="flex justify-between items-center mb-6">
                     <h2 className="text-xl font-semibold">Payment Methods</h2>

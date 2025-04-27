@@ -93,10 +93,17 @@ const SellerDashboard = () => {
       
       <main className="flex-grow py-10">
         <div className="container mx-auto px-4">
-          {/* Dashboard Stats */}
+          {/* Dashboard Stats with Background Images */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-white rounded-lg shadow p-6">
-              <div className="flex items-center">
+            <div className="relative bg-white rounded-lg shadow p-6 overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <img
+                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+                  alt="Revenue background"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="relative flex items-center">
                 <div className="bg-blue-100 p-3 rounded-full">
                   <ShoppingBag className="h-6 w-6 text-sport-blue" />
                 </div>
@@ -107,8 +114,15 @@ const SellerDashboard = () => {
               </div>
             </div>
             
-            <div className="bg-white rounded-lg shadow p-6">
-              <div className="flex items-center">
+            <div className="relative bg-white rounded-lg shadow p-6 overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <img
+                  src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55"
+                  alt="Orders background"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="relative flex items-center">
                 <div className="bg-green-100 p-3 rounded-full">
                   <Package className="h-6 w-6 text-green-600" />
                 </div>
@@ -119,8 +133,15 @@ const SellerDashboard = () => {
               </div>
             </div>
             
-            <div className="bg-white rounded-lg shadow p-6">
-              <div className="flex items-center">
+            <div className="relative bg-white rounded-lg shadow p-6 overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <img
+                  src="https://images.unsplash.com/photo-1617083934551-ea81e8c49ab4"
+                  alt="Customers background"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="relative flex items-center">
                 <div className="bg-purple-100 p-3 rounded-full">
                   <Users className="h-6 w-6 text-purple-600" />
                 </div>
@@ -131,8 +152,15 @@ const SellerDashboard = () => {
               </div>
             </div>
             
-            <div className="bg-white rounded-lg shadow p-6">
-              <div className="flex items-center">
+            <div className="relative bg-white rounded-lg shadow p-6 overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <img
+                  src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+                  alt="Average Order background"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="relative flex items-center">
                 <div className="bg-yellow-100 p-3 rounded-full">
                   <BarChart3 className="h-6 w-6 text-yellow-600" />
                 </div>
